@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs}
+\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs,wrapfig,multicol}
 \hypersetup{
             colorlinks = true,
             linkcolor = blue,
@@ -27,6 +27,11 @@
   \endflushleft
 }
 
+\newcommand{\hugeslide}[1]{
+\begin{frame}[plain,c]
+    \centering {\usebeamerfont*{frametitle} \usebeamercolor[fg]{frametitle}\fontsize{40}{50}\selectfont #1}
+\end{frame}
+}
 \begin{document}
 \begin{frame}
     \maketitle
@@ -46,5 +51,54 @@
     \end{description}
 
 \end{frame}
+
+\begin{frame}
+    \frametitle{What is Git?}
+
+    \begin{multicols}{2}
+
+        \begin{itemize}
+            \item Git is nothing more than Directed Acyclic Graph of objects compressed and identified by an SHA-1 hash. % What?
+            \item Git works in snapshots, not differences. % Meaning when you commit (or save), you save a mini filesystem at the time of commit. This makes going through and seeing changes very easy
+                \item Git is local. % Changes can be saved and continue your work no matter where you are. You can't receive/transmit changes from the remote, central repository, but you can continue your work (when you are ready to pull changes from central repo, it'll merge).
+            \item Git has data integrity. % That's the SHA-1 hash. All your snapshots are referred to by a checksum.
+            \item Git is parallelizable. % Meaning hundreds of people can work on hundreds different versions of the repository, and it'll still work.
+        \end{itemize}
+
+        \begin{center}
+            \includegraphics[width=0.35\textwidth]{xkcd}
+        \end{center}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The Five Stages of Git}
+
+    \begin{enumerate}
+        \item Working Directory % This is the local repository. The changes and modification you make are in this stage, until you 'add' (i.e. specifically say these are the files whos changes you want to `commit') them.
+        \item Staging Area % When files are 'added', they are in the staging area, you ready for you to say `these are the changes I made'.
+        \item Git Directory % After `committing' (nothing more than saying I made these changes, here's what's different), they are updated in the git databases
+        \item $\cdots$
+        \item Profit % fuck yeah!
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{\shellcmd{Git}ting Good}
+
+    If the ``stages'' didn't make sense, that's alright. It's better to go through a workflow as apposed to the formalities.
+
+    \begin{enumerate}
+        \item Start a new repository with \shellcmd{git init} % this creates your working directory
+        \item Work on project in bite sized chunks, and add files that were changed with \shellcmd{git add file(s)} % adding to the staging area
+        \item Commit your changes with \shellcmd{git commit} % This transfers them to the Git directory
+        \item Optionally, \shellcmd{git push} to save changes to the remote branch
+        \item Of course, profit.
+    \end{enumerate}
+\end{frame}
+
+\hugeslide{Demo}
+
+
 
 \end{document}
