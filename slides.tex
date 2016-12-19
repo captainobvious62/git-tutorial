@@ -21,6 +21,7 @@
  {\SaveVerbatim{cverb}}
  {\endSaveVerbatim
   \flushleft\fboxrule=0pt\fboxsep=.5em
+  \scriptsize
   \colorbox{cverbbg}{%
     \makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
   }
@@ -56,7 +57,6 @@
     \frametitle{What is Git?}
 
     \begin{multicols}{2}
-
         \begin{itemize}
             \item Git is nothing more than Directed Acyclic Graph of objects compressed and identified by an SHA-1 hash. % What?
             \item Git works in snapshots, not differences. % Meaning when you commit (or save), you save a mini filesystem at the time of commit. This makes going through and seeing changes very easy
@@ -97,7 +97,74 @@
     \end{enumerate}
 \end{frame}
 
+\begin{frame}
+    \frametitle{The Commit Message}
+    This is the easiest part of git --- and also the easiest to mess up. Here are \href{http://chris.beams.io/posts/git-commit/}{seven rules of a great commit message}.
+    \begin{multicols}{2}
+        \begin{enumerate}
+            \item Separate subject from body with a blank line.
+            \item Limit the subject line to 50 characters.
+            \item Capitalize the subject line.
+            \item Do not end the subject line with a period.
+            \item Use the imperative mood in the subject line.
+            \item Wrap the body at 72 characters.
+            \item Use the body to explain \textit{what} and \textit{why} vs. \textit{how}.
+        \end{enumerate}
+
+        \begin{center}
+            \includegraphics[width=0.45\textwidth]{xkcd-2}
+        \end{center}
+    \end{multicols}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{The Commit Message (Example)}
+
+    \begin{lcverbatim}
+Summarize changes in around 50 characters or less
+
+More detailed explanatory text, if necessary. Wrap it to about 72
+characters or so. In some contexts, the first line is treated as the
+subject of the commit and the rest of the text as the body. The
+blank line separating the summary from the body is critical (unless
+you omit the body entirely); various tools like `log', `shortlog'
+and `rebase' can get confused if you run the two together.
+
+Explain the problem that this commit is solving. Focus on why you
+are making this change as opposed to how (the code explains that).
+Are there side effects or other unintuitive consequences of this
+change? Here's the place to explain them.
+
+Further paragraphs come after blank lines.
+
+ - Bullet points are okay, too
+
+ - Typically a hyphen or asterisk is used for the bullet, preceded
+   by a single space, with blank lines in between, but conventions
+   vary here
+    \end{lcverbatim}
+\end{frame}
+
+
 \hugeslide{Demo}
+
+
+\begin{frame}
+    \frametitle{\shellcmd{Git}ting Better}
+
+    Some more advanced commands to make your job easier.
+
+    \begin{itemize}
+        \item The wildcard \shellcmd{*} expands to whatever can fit a certain pattern.
+        \begin{itemize}
+            \item \shellcmd{git add *.cpp} stages all files with a \shellcmd{cpp} extension.
+            \item \shellcmd{git add damon.*} add all document types with the name of \texttt{damon}, whether it be \shellcmd{cpp}, \shellcmd{txt}, or (unfortunately) \shellcmd{jpg}.
+        \end{itemize}
+
+        \item \shellcmd{git add -A} stages new, modified, and modified files.
+        \item \shellcmd{git commit -m ``<msg>''} commits with the commit message \texttt{<msg>}. \textbf{Only use if you absolutely know what you're doing.}
+    \end{itemize}
+\end{frame}
 
 
 
