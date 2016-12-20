@@ -492,6 +492,33 @@ Further paragraphs come after blank lines.
 \hugeslide{Demo}
 
 \begin{frame}
+    \frametitle{You Broke It --- Finding The Mistake}
+
+    \begin{itemize}
+        \item \shellcmd{git log} shows all previous commits. It has many useful parameters.
+        \begin{itemize}
+            \item \shellcmd{--stat} Shows statistics (deletions, insertions, files changed) for your files.
+            \item \shellcmd{--pretty=oneline} A one line list of all your changes.
+            \item \shellcmd{--graph} Shows a graph.
+            \item \shellcmd{-p} Shows what are the changes to your code base.
+        \end{itemize}
+
+        \item \shellcmd{git diff} show the difference between the working directory and the last commit.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{You Broke It --- Fixing The Mistake}
+
+    \begin{itemize}
+        \item \shellcmd{git checkout COMMIT} Just as branches, looks at a previous commit.
+        \item \shellcmd{git revert COMMIT} Generate a new commit that undoes all of the changes introduced in \shellcmd{COMMIT}, then apply it to the current branch.
+        \item \shellcmd{git reset COMMIT} Move \shellcmd{head} to \shellcmd{commit} and reset the staging area to match. \textit{Leaves the working directory alone}.
+        \item  \shellcmd{git reset --hard COMMIT} Move \shellcmd{head} to \shellcmd{commit} and reset the staging area to match. \textit{Destroys working direcory}. \textbf{Only use if you absolutely know what you're doing.}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
     \frametitle{In Closing}
     Special thanks to \href{http://web.mst.edu/~nmjxv3/}{Nathan Jarus} for ``lending'' me his \LaTeX tikz code for the branching, committing and merging section.
 
