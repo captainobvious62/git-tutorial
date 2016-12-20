@@ -54,7 +54,7 @@
     Below are the more popular methods of installation.
 
     \begin{description}
-        \item[macOS] \shellcmd{brew install git}\footnote{Or whatever hip package manager you use.}
+        \item[macOS] \shellcmd{brew install git}\footnote{Or whatever hip package manager you use.} or installing \href{http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/}{command lines tools}.
         \item[Linux] Depends on your distro. If Ubuntu use \shellcmd{sudo apt-get install git-all}, if Arch Linux then \shellcmd{pacman -S git}, if others refer \href{https://git-scm.com/download/linux}{here}.
         \item[Windows] Download a \texttt{.exe} from \href{https://git-scm.com/download/win}{here}.
     \end{description}
@@ -94,7 +94,7 @@
 \begin{frame}
     \frametitle{\shellcmd{Git}ting Good}
 
-    If the ``stages'' didn't make sense, that's alright. It's better to go through a workflow as apposed to the formalities.
+    If the ``stages'' didn't make sense, that's alright. It's better to go through a workflow apposed to the formalities.
 
     \begin{enumerate}
         \item Start a new repository with \shellcmd{git init} % this creates your working directory
@@ -210,7 +210,7 @@ Further paragraphs come after blank lines.
             \item \shellcmd{git add damon.*} add all document types with the name of \texttt{damon}, whether it be \shellcmd{cpp}, \shellcmd{txt}, or (unfortunately) \shellcmd{jpg}.
         \end{itemize}
 
-        \item \shellcmd{git add -A} stages new, modified, and modified files.
+        \item \shellcmd{git add -A} stages new, modified, and removed files.
         \item \shellcmd{git commit -m ``<msg>''} commits with the commit message \texttt{<msg>}. \textbf{Only use if you absolutely know what you're doing.}
     \end{itemize}
 \end{frame}
@@ -438,7 +438,7 @@ Further paragraphs come after blank lines.
 
 \begin{frame}[fragile]
     \frametitle{Merge Conflicts \presentcount{conflicts}}
-    On occasion, you might run into a merge conflict. These arise when you modify two parts of the shared code-base. For instance, an error message could appear like so:
+    On occasion, you might run into a merge conflict. These arise when you modify two parts of a shared code-base. For instance, an error message could appear like so:
     \begin{lcverbatim}
     Auto-merging the-files(s).txt
     CONFLICT (content): Merge conflict in the-file(s).txt
@@ -522,7 +522,7 @@ Further paragraphs come after blank lines.
     \frametitle{Working With Remotes}
 
     \begin{itemize}
-		\item \shellcmd{git clone REPO\_LOCATION} makes a copy of a repository in the current directory --- you can set up SSH keys for Git/Gitlab or just use the url.
+		\item \shellcmd{git clone LOCATION} Makes a copy of a repository in the current directory --- you can set up SSH keys for Git/Gitlab or just use the url.
 		\item \shellcmd{git push ORIGIN BRANCH} Pushes changes from your current branch to the remote branch it tracks.
 		\item \shellcmd{git pull ORIGIN BRANCH} Pulls changes from the remote branch and merges them into your current branch.
 	\end{itemize}
@@ -530,7 +530,7 @@ Further paragraphs come after blank lines.
 
 \begin{frame}
     \frametitle{In Closing}
-    Special thanks to \href{http://web.mst.edu/~nmjxv3/}{Nathan Jarus} for ``lending'' me his \LaTeX tikz code for the branching, committing and merging section.
+    Special thanks to \href{http://web.mst.edu/~nmjxv3/}{Nathan Jarus} for ``lending'' me his \LaTeX{} tikz code for the branching, committing and merging section.
 
     % This only compiles with XeLaTeX
     % \begin{description}
