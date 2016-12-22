@@ -42,3 +42,10 @@ GameState Board::getWinner() {
 bool Board::hasWon() {
 	return getWinner() != blank;
 }
+
+bool Board::noMoreMovesAvailable() {
+	auto flatBoard = flatten(board);
+	return accumulate(flatBoard.begin(), flatBoard.end(), true, 
+		[&] (bool accumulator, auto next) { return accumulator && next != blank; }
+	);
+}

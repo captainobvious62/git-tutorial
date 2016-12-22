@@ -27,6 +27,8 @@ public:
 
     GameState getWinner();
     bool hasWon();
+    bool noMoreMovesAvailable();
+    
 };
 
 #endif /* board_h */
