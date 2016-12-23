@@ -6,7 +6,31 @@
 //  Copyright © 2016 Illya Starikov. All rights reserved.
 //
 
-#include "board.h"
+#include "board.hpp"
+
+char Board::stateToCharacter(const GameState state) {
+    char character;
+
+    switch (state) {
+        case blank:
+            character = ' ';
+            break;
+
+        case o:
+            character = 'O';
+            break;
+
+        case x:
+            character = 'X';
+            break;
+
+        default:
+            character = '?';
+            break;
+    }
+    
+    return character;
+}
 
 // Returns the enum corresponding to the value of who is the winner
 // A blank is returned if no one won
@@ -49,3 +73,19 @@ bool Board::noMoreMovesAvailable() {
 		[&] (bool accumulator, auto next) { return accumulator && next != blank; }
 	);
 }
+
+void Board::print() {
+    int iteration = 0;
+    unsigned char character; 
+
+    for (const auto& subarray : board) {
+        std::cout << stateToCharacter(subarray[0]) << "|" << stateToCharacter(subarray[1]) << "|" << stateToCharacter(subarray[2]) << "\n";
+        
+        if (iteration == 0 || iteration == 1) {
+            std::cout << "-----\n";
+        }
+
+        iteration++;
+    }
+}
+
