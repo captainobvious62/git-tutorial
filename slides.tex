@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs,wrapfig,multicol,tikz}
+\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs,wrapfig,multicol,tikz,textcomp}
 % \usepackage{fontawesome,setspace} % ONLY BUILD WITH XELATEX
 \usetikzlibrary{arrows,automata,positioning}
 \hypersetup{
@@ -58,6 +58,20 @@
         \item[Linux] Depends on your distro. If Ubuntu use \shellcmd{sudo apt-get install git-all}, if Arch Linux then \shellcmd{pacman -S git}, if others refer \href{https://git-scm.com/download/linux}{here}.
         \item[Windows] Download a \texttt{.exe} from \href{https://git-scm.com/download/win}{here}.
     \end{description}
+
+\end{frame}
+
+\begin{frame}
+    \frametitle{Getting Started}
+    If you would like to follow along, navigate to \url{https://github.com/IllyaStarikov} \textrightarrow \ repositories \textrightarrow \ msat-git-tutorial \textrightarrow \ clone or download\footnote{\includegraphics[width=0.5\textwidth]{github-clone}}. From here, you can either download as you normally would, or you use the super-cool terminal way:
+
+    \begin{enumerate}
+        \item Copy the link provided (some like \url{https://github.com/IllyaStarikov/msat-git-tutorial.git}).
+        \item Open your favorite terminal emulator of choice.
+        \item Navigate to desired directory (using \shellcmd{cd DIRECTORY})
+        \item Type in \shellcmd{git clone LINK}, where link is the copied link from Step \#1.
+    \end{enumerate}
+
 
 \end{frame}
 
