@@ -1,17 +1,21 @@
 //
-//  functions.h
+//  functions.hpp
 //  Source Code
 //
 //  Created by Illya Starikov on 12/20/16.
 //  Copyright © 2016 Illya Starikov. All rights reserved.
 //
 
+#include <vector>
+#include <tuple>
+
 #ifndef functions_hpp
 #define functions_hpp
 
-#include <iostream>
-#include <vector>
-#include <tuple>
+#include "board.hpp"
+
+bool inBounds(const int x, const int y);
+std::tuple<int, int> getPlayerMove(const char player, const Board board);
 
 // Takes a two dimensional array and returns a one dimensional array of the same type
 template <typename T>

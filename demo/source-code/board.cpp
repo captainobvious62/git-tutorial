@@ -8,6 +8,12 @@
 
 #include "board.hpp"
 
+#include <vector>
+#include <tuple> 
+#include <iostream>
+#include <numeric>
+#include <algorithm>
+
 char Board::stateToCharacter(const GameState state) {
     char character;
 
@@ -76,8 +82,8 @@ bool Board::noMoreMovesAvailable() {
 
 void Board::print() {
     int iteration = 0;
-    unsigned char character; 
-
+    
+    std::cout << "\n";
     for (const auto& subarray : board) {
         std::cout << stateToCharacter(subarray[0]) << "|" << stateToCharacter(subarray[1]) << "|" << stateToCharacter(subarray[2]) << "\n";
         
@@ -87,5 +93,6 @@ void Board::print() {
 
         iteration++;
     }
+    std::cout << "\n";
 }
 

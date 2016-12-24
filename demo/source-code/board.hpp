@@ -6,15 +6,12 @@
 //  Copyright © 2016 Illya Starikov. All rights reserved.
 //
 
-#ifndef board_h
-#define board_h
-
 #include <vector>
-#include <tuple> 
-#include <numeric>
-#include <algorithm>
 
 #include "functions.hpp"
+
+#ifndef board_hpp
+#define board_hpp
 
 enum GameState { blank = 0, x, o };
 
@@ -34,4 +31,4 @@ public:
     void print();
 };
 
-#endif /* board_h */
+#endif /* board_hpp */
