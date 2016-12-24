@@ -543,6 +543,24 @@ Further paragraphs come after blank lines.
 \end{frame}
 
 \begin{frame}
+    \frametitle{The Workflow}
+
+    If for the first time working on a repo, \shellcmd{git clone} the repo and \shellcmd{cd} into the directory. Then,
+
+    \begin{enumerate}
+        \item Pull any new changes with \shellcmd{git pull}.
+        \item If starting a new feature or bug fix, create new branch with \shellcmd{git branch} (and switch to the branch with \shellcmd{git checkout}).
+        \item Make your changes.
+        \item Add your changes with either \shellcmd{git add FILE(s)} or \shellcmd{git add -A}\footnote{Only if you're sure you know what you're adding}.
+        \item Commit your changes with \shellcmd{git commit}. Provide a \textbf{detailed} commit message.
+        \item When feature/bug fix is finished, merge with either \shellcmd{git merge} or create a merge request. If there are merge conflicts, fix them.
+        \item \shellcmd{git push} your changes.
+    \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
     \frametitle{In Closing}
     Special thanks to \href{http://web.mst.edu/~nmjxv3/}{Nathan Jarus} for ``lending'' me his \LaTeX{} tikz code for the branching, committing and merging section.
 
