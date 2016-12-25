@@ -1,10 +1,31 @@
 \RequirePackage[l2tabu, orthodox]{nag}
 \documentclass[12pt]{article}
 
-\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,upquote,units,booktabs,siunitx,xcolor}
-\usepackage[margin=10pt, font=small, labelfont=bf, labelsep=endash]{caption}
-\usepackage[colorlinks=true, pdfborder={0 0 0}]{hyperref}
+\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,upquote,units,booktabs,siunitx,xcolor,fancyvrb,newverbs}
 \usepackage[utf8]{inputenc}
+\usepackage[margin=10pt, font=small, labelfont=bf, labelsep=endash]{caption}
+\usepackage[
+            colorlinks = true,
+            linkcolor = blue,
+            urlcolor  = blue,
+            citecolor = blue,
+            anchorcolor = blue]{hyperref}
+
+
+\definecolor{cverbbg}{gray}{.7}
+\newenvironment{lcverbatim}
+ {\SaveVerbatim{cverb}}
+ {\endSaveVerbatim
+  \flushleft\fboxrule=0pt\fboxsep=.5em
+  \scriptsize
+  \colorbox{cverbbg}{%
+    \makebox[\dimexpr\linewidth-2\fboxsep][l]{\BUseVerbatim{cverb}}%
+  }
+  \endflushleft
+}
+
+
+\newcommand{\shellcmd}[1]{\texttt{\colorbox{gray!30}{#1}}}
 
 \title{Fundamentals of Git}
 \date{\today}
@@ -12,6 +33,58 @@
 
 \begin{document}
 \maketitle
+
+
+\section{\texorpdfstring{\shellcmd{Git}ting} \ \ Good}
+Let's start with a blank directory\footnote{We don't always have to do this, especially if we already have a git repository somewhere else.}. After opening your terminal emulator of choice,
+
+\begin{enumerate}
+    \item Navigate to your desktop directory via \shellcmd{cd}.
+    \item Make a new directory named \texttt{git-tac-toe} for your git repository (\shellcmd{mkdir git-tac-toe}) and change into said directory (\shellcmd{cd git-tac-toe}).
+    \item Create a git repository within this directory (\shellcmd{git init}).
+\end{enumerate}
+
+\noindent We are now ready to start using Git! \texttt{Initialized empty Git repository in $\cdots$} or something of that nature should appear. If you receive a warning/error message, changes are git was not set up correctly.
+
+A common convention is to have a \texttt{README.md} file in your directory. We will create one now.
+
+\begin{enumerate}
+    \item Create a new file named \texttt{README.md} with your text editor of choice (for this demo, I will be using \href{http://www.vim.org}{vim}).
+    \item Insert the following text into the file --- if you're not familiar with Markdown, the syntax is easy. Check it out \href{https://guides.github.com/features/mastering-markdown/}{here}.
+\end{enumerate}
+
+\begin{lcverbatim}
+# Git Tac Toe
+
+This is just a demonstration on the fundamentals of git!
+\end{lcverbatim}
+
+\begin{enumerate}
+    \setcounter{enumi}{2}
+    \item Save your changes. At this point, we have enough to commit our changes. Add the markdown file with \shellcmd{git add README.md}.
+    \item Commit your files with \shellcmd{git commit}. A text editor should appear asking you for your commit message (if you've never used Git nor done anything with your environmental variables, it will probably be nano).
+    \begin{itemize}
+        \item If you want to change the Git text editor, \\ \shellcmd{git config --global core.editor "EDITOR"}.
+        \item If you want to change the global text editor, \shellcmd{export VISUAL=vim} followed by \shellcmd{export EDITOR="\$VISUAL"}.
+    \end{itemize}
+
+    \item You commit message should appear like so:
+\end{enumerate}
+
+\begin{lcverbatim}
+Added a read me to describe project
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#       new file:   README.md
+\end{lcverbatim}
+
+\noindent Note the commit message isn't particularly long; that's because the intent is very clear.
+
 
 
 \end{document}
