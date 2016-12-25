@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs,wrapfig,multicol,tikz}
+\usepackage{amssymb,amsmath,verbatim,graphicx,microtype,units,booktabs,upquote,xcolor,siunitx,csquotes,fancyvrb,newverbs,wrapfig,multicol,tikz,textcomp}
 % \usepackage{fontawesome,setspace} % ONLY BUILD WITH XELATEX
 \usetikzlibrary{arrows,automata,positioning}
 \hypersetup{
@@ -62,6 +62,20 @@
 \end{frame}
 
 \begin{frame}
+    \frametitle{Getting Started}
+    If you would like to follow along, navigate to \url{https://github.com/IllyaStarikov} \textrightarrow \ repositories \textrightarrow \ msat-git-tutorial \textrightarrow \ clone or download\footnote{\includegraphics[width=0.5\textwidth]{github-clone}}. From here, you can either download as you normally would, or you use the super-cool terminal way:
+
+    \begin{enumerate}
+        \item Copy the link provided (something like \url{https://github.com/IllyaStarikov/msat-git-tutorial.git}).
+        \item Open your terminal emulator of choice.
+        \item Navigate to desired directory (using \shellcmd{cd DIRECTORY})
+        \item Type in \shellcmd{git clone LINK}, where link is the copied link from Step \#1.
+    \end{enumerate}
+
+
+\end{frame}
+
+\begin{frame}
     \frametitle{What is Git?}
 
     \begin{multicols}{2}
@@ -100,8 +114,8 @@
         \item Start a new repository with \shellcmd{git init} % this creates your working directory
         \item Work on project in bite sized chunks, and add files that were changed with \shellcmd{git add file(s)} % adding to the staging area
         \item Commit your changes with \shellcmd{git commit} % This transfers them to the Git directory
-        \item Optionally, \shellcmd{git push} to save changes to the remote branch
-        \item Of course, profit.
+        \item $\cdots$
+        \item Profit.
     \end{enumerate}
 \end{frame}
 
@@ -436,6 +450,12 @@ Further paragraphs come after blank lines.
 	\end{tikzpicture}
 \end{frame}
 
+\begin{frame}
+    \frametitle{Merging \presentcount{merging}}
+
+    When working with larger repositories, you might not necessarily have rights to arbitrarily merge --- you have to create a \textit{merge request}. A merge request allows for someone to review the changes being made to the master branch. \textit{Because merge requests are different per hosting service, this will be shown in the demo.}
+\end{frame}
+
 \begin{frame}[fragile]
     \frametitle{Merge Conflicts \presentcount{conflicts}}
     On occasion, you might run into a merge conflict. These arise when you modify two parts of a shared code-base. For instance, an error message could appear like so:
@@ -527,6 +547,24 @@ Further paragraphs come after blank lines.
 		\item \shellcmd{git pull ORIGIN BRANCH} Pulls changes from the remote branch and merges them into your current branch.
 	\end{itemize}
 \end{frame}
+
+\begin{frame}
+    \frametitle{\shellcmd{Git}ting Better-est}
+
+    If for the first time working on a repo, \shellcmd{git clone} the repo and \shellcmd{cd} into the directory. Then,
+
+    \begin{enumerate}
+        \item Pull any new changes with \shellcmd{git pull}.
+        \item If starting a new feature or bug fix, create new branch with \shellcmd{git branch} (and switch to the branch with \shellcmd{git checkout}).
+        \item Make your changes.
+        \item Add your changes with either \shellcmd{git add FILE(s)} or \shellcmd{git add -A}\footnote{Only if you're sure you know what you're adding}.
+        \item Commit your changes with \shellcmd{git commit}. Provide a \textbf{detailed} commit message.
+        \item When feature/bug fix is finished, merge with either \shellcmd{git merge} or create a merge request. If there are merge conflicts, fix them.
+        \item \shellcmd{git push} your changes.
+    \end{enumerate}
+
+\end{frame}
+
 
 \begin{frame}
     \frametitle{In Closing}
